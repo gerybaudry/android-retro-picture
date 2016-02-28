@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Epitech Messenger App</string>
+    <string name="title_activity_sign_up">Sign up</string>
+    <string name="errorActivityLabel">Error</string>
+    <string name="homeDisconnectedActivityLabel">Enter messenger</string>
+    <string name="signUpActivityLabel">Sign up</string>
+    <string name="signInActivityLabel">Sign in</string>
+    <string name="homeActivityLabel">Home</string>
+    <string name="searchContactsActivityLabel">Search contacts</string>
+</resources>
