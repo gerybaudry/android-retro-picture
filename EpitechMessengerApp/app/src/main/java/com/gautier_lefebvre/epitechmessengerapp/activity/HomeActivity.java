@@ -121,19 +121,17 @@ public class HomeActivity extends MessageHandlingActivity {
             // create adapter
             ArrayAdapter<Contact> adapter = new ArrayAdapter<Contact>(
                     this,
-                    android.R.layout.simple_list_item_1,
+                    android.R.layout.simple_list_item_2,
                     android.R.id.text1,
                     ApplicationData.contactList) {
                 @Override
                 public View getView(int position, View convertView, ViewGroup parent) {
                     View view = super.getView(position, convertView, parent);
-                    TextView textView = (TextView)view.findViewById(android.R.id.text1);
-                    try {
-                        if (!ApplicationData.contactList.get(position).added) {
-                            textView.setTextColor(Color.parseColor("#f07dff"));
-                        }
-                    } catch (Exception e) {
-                        return view;
+                    ((TextView)view.findViewById(android.R.id.text1)).setText(ApplicationData.contactList.get(position).nickname);
+                    if (!ApplicationData.contactList.get(position).added) {
+                        ((TextView)view.findViewById(android.R.id.text2)).setText("Hold to add contact");
+                    } else {
+                        ((TextView)view.findViewById(android.R.id.text2)).setText("Hold to remove contact");
                     }
                     return view;
                 }

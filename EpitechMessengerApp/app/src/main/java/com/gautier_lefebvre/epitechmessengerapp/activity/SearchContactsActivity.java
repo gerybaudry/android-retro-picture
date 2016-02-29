@@ -7,10 +7,12 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.gautier_lefebvre.epitechmessengerapp.business.ProtocolService;
 import com.gautier_lefebvre.epitechmessengerapp.entity.ApplicationData;
@@ -79,11 +81,19 @@ public class SearchContactsActivity extends AppActivity {
             }
 
             if (listView.getAdapter() == null) {
-                ArrayAdapter<UserData> adapter = new ArrayAdapter<>(
+                ArrayAdapter<UserData> adapter = new ArrayAdapter<UserData>(
                         this,
-                        android.R.layout.simple_list_item_1,
+                        android.R.layout.simple_list_item_2,
                         android.R.id.text1,
-                        this.searchResult);
+                        this.searchResult) {
+                    @Override
+                    public View getView(int position, View convertView, ViewGroup parent) {
+                        View view = super.getView(position, convertView, parent);
+                        ((TextView)view.findViewById(android.R.id.text1)).setText(searchResult.get(position).nickname);
+                        ((TextView)view.findViewById(android.R.id.text2)).setText("Touch to add contact");
+                        return view;
+                    }
+                };
 
 
                 listView.setAdapter(adapter);
