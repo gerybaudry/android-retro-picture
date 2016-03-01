@@ -76,6 +76,8 @@ public class ConversationActivity extends MessageHandlingActivity {
             this.finish();
             this.startActivity(this.getHomeIntent());
         } else {
+            contact.setAllMessagesRead();
+
             _handler.post(_refreshMessagesRunnable);
 
             this._gcmNotificationBroadcastReceiver = new BroadcastReceiver() {
@@ -243,7 +245,7 @@ public class ConversationActivity extends MessageHandlingActivity {
                     new GetUserDataTask().execute(request);
                 }
 
-                Message message = new Message(c, msgData.content, msgData.date);
+                Message message = new Message(c, msgData.content, msgData.date, true);
                 c.conversationHistory.add(message);
 
                 if (c.userId == this._contactId) {
@@ -274,7 +276,7 @@ public class ConversationActivity extends MessageHandlingActivity {
         if (response.success) {
             Calendar cal = Calendar.getInstance(TimeZone.getDefault());
             SimpleDateFormat sdf = new SimpleDateFormat("HH:mm", Locale.getDefault());
-            Message message = new Message(ApplicationData.currentUser, request.content, sdf.format(cal.getTime()));
+            Message message = new Message(ApplicationData.currentUser, request.content, sdf.format(cal.getTime()), true);
             Contact contact = ApplicationData.getContactById(this._contactId);
             if (contact !=  null) {
                 contact.conversationHistory.add(message);

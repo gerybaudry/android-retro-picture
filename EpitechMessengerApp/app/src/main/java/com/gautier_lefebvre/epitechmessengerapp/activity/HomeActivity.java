@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -127,11 +128,27 @@ public class HomeActivity extends MessageHandlingActivity {
                 @Override
                 public View getView(int position, View convertView, ViewGroup parent) {
                     View view = super.getView(position, convertView, parent);
-                    ((TextView)view.findViewById(android.R.id.text1)).setText(ApplicationData.contactList.get(position).nickname);
-                    if (!ApplicationData.contactList.get(position).added) {
-                        ((TextView)view.findViewById(android.R.id.text2)).setText("Hold to add contact");
+
+                    TextView t1 = (TextView) view.findViewById(android.R.id.text1);
+                    TextView t2 = (TextView) view.findViewById(android.R.id.text2);
+
+                    Contact c = ApplicationData.contactList.get(position);
+                    int unreadMessages = c.getUnreadMessagesNb();
+
+                    // set primary text (nickname + nb of unread messages)
+                    if (unreadMessages > 0) {
+                        t1.setText(c.nickname + " (" + unreadMessages + ")");
+                        t1.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
                     } else {
-                        ((TextView)view.findViewById(android.R.id.text2)).setText("Hold to remove contact");
+                        t1.setText(c.nickname);
+                        t1.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL));
+                    }
+
+                    // set secondary text (hold to add or hold to remove)
+                    if (!c.added) {
+                        t2.setText("Hold to add contact");
+                    } else {
+                        t2.setText("Hold to remove contact");
                     }
                     return view;
                 }
@@ -389,7 +406,6 @@ public class HomeActivity extends MessageHandlingActivity {
                     // add contact
                     c = new Contact(msgData.contactId, "loading...", false);
                     ApplicationData.contactList.add(c);
-                    this.updateContactList();
 
                     // ask contact data (nickname)
                     GetUserData.Request request = new GetUserData.Request();
@@ -400,8 +416,9 @@ public class HomeActivity extends MessageHandlingActivity {
                     new GetUserDataTask().execute(request);
                 }
 
-                Message message = new Message(c, msgData.content, msgData.date);
+                Message message = new Message(c, msgData.content, msgData.date, false);
                 c.conversationHistory.add(message);
+                this.updateContactList();
             }
         } else {
             this.showDialog("error", response.reason);
