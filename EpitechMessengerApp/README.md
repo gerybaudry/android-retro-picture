@@ -37,7 +37,7 @@ Ex:
 
 Le serveur lui répond en lui donnant son *user_id* et son *authentication_token* (réponse chiffrée avec la clé AES du client fournie dans la requête).
 
-Après l'authentification du client, toutes les communications se font sur la route `GET /secure_route/:user_id`, et la véritable route recherchée est dans la requête.
+Après l'authentification du client, toutes les communications se font sur la route `GET /secure_route/:user_id`, et la véritable route recherchée est dans la requête. Tout le body est chiffré avec AES (le serveur peut récupérer la clé grâce à l'user_id précisé dans la route).
 
 Ex:
 ```
