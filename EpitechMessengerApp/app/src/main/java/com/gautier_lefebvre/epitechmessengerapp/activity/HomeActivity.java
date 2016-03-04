@@ -10,6 +10,7 @@ import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v7.app.ActionBar;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -69,8 +70,13 @@ public class HomeActivity extends MessageHandlingActivity {
             };
 
             // set nickname text view contact
-            TextView nicknameTextView = (TextView) this.findViewById(R.id.nicknameTextView);
-            nicknameTextView.setText(ApplicationData.currentUser.nickname);
+//            TextView nicknameTextView = (TextView) this.findViewById(R.id.nicknameTextView);
+//            nicknameTextView.setText(ApplicationData.currentUser.nickname);
+
+            ActionBar bar = getSupportActionBar();
+            if (bar != null) {
+                bar.setTitle(ApplicationData.currentUser.nickname);
+            }
 
             // load contacts
             ContactList.Request request = new ContactList.Request();
@@ -146,9 +152,9 @@ public class HomeActivity extends MessageHandlingActivity {
 
                     // set secondary text (hold to add or hold to remove)
                     if (!c.added) {
-                        t2.setText("Hold to add contact");
+                        t2.setText("Touch to talk. Hold to add contact");
                     } else {
-                        t2.setText("Hold to remove contact");
+                        t2.setText("Touch to talk. Hold to remove contact");
                     }
                     return view;
                 }

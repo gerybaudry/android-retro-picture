@@ -3,37 +3,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
     tools:context="com.gautier_lefebvre.epitechmessengerapp.activity.HomeActivity">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:id="@+id/nicknameTextView"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:clickable="true"
-        android:onClick="nicknameTextView_onClick" />
 
     <ListView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:id="@+id/contactListView"
-        android:layout_below="@+id/findContactsButton"
         android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true" />
+        android:layout_above="@+id/findContactsButton"
+        android:paddingBottom="16dp"
+        android:layout_alignParentTop="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="find contacts"
+        android:background="@color/blue"
+        android:textColor="@android:color/white"
         android:id="@+id/findContactsButton"
-        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
         android:clickable="true"
+        android:layout_alignParentEnd="true"
         android:onClick="findContactsButton_onClick" />
+
 </RelativeLayout>

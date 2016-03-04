@@ -11,7 +11,9 @@
 
     <EditText
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
+        android:paddingLeft="15dp"
+        android:background="@drawable/background_edittext"
         android:inputType="textEmailAddress"
         android:ems="10"
         android:id="@+id/emailField"
@@ -19,11 +21,14 @@
         android:layout_alignParentStart="true"
         android:layout_marginTop="34dp"
         android:layout_alignParentEnd="true"
-        android:text="lol@lol.com" />
+        android:text="" />
 
     <EditText
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
+        android:paddingLeft="15dp"
+        android:layout_marginTop="34dp"
+        android:background="@drawable/background_edittext"
         android:inputType="textPassword"
         android:ems="10"
         android:id="@+id/passwordField"
@@ -31,16 +36,17 @@
         android:layout_alignParentStart="true"
         android:layout_alignEnd="@+id/emailField"
         android:hint="Password"
-        android:text="yolOsw4g" />
+        android:text="" />
 
     <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Sign in"
+        android:background="@color/blue"
+        android:textColor="@android:color/white"
+        android:text="Connexion"
         android:id="@+id/submitButton"
-        android:layout_below="@+id/passwordField"
-        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
         android:onClick="SubmitButton_onClick" />
 
     <Button

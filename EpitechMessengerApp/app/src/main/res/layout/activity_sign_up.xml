@@ -11,7 +11,9 @@
 
     <EditText
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
+        android:paddingLeft="15dp"
+        android:background="@drawable/background_edittext"
         android:inputType="textPersonName"
         android:ems="10"
         android:id="@+id/nameField"
@@ -19,11 +21,14 @@
         android:hint="Nickname"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:text="Gautier" />
+        android:text="" />
 
     <EditText
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginTop="22dp"
+        android:paddingLeft="15dp"
+        android:background="@drawable/background_edittext"
         android:inputType="textEmailAddress"
         android:ems="10"
         android:id="@+id/emailField"
@@ -31,11 +36,14 @@
         android:layout_alignParentStart="true"
         android:layout_alignEnd="@+id/nameField"
         android:hint="E-mail"
-        android:text="lol@lol.com" />
+        android:text="" />
 
     <EditText
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
+        android:paddingLeft="15dp"
+        android:layout_marginTop="22dp"
+        android:background="@drawable/background_edittext"
         android:inputType="textPassword"
         android:ems="10"
         android:id="@+id/passwordField"
@@ -43,20 +51,25 @@
         android:layout_alignParentStart="true"
         android:layout_alignEnd="@+id/emailField"
         android:hint="Password"
-        android:text="yolOsw4g" />
+        android:text="" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="OK"
+        android:background="@color/blue"
+        android:textColor="@android:color/white"
+        android:text="Inscription"
         android:id="@+id/submitButton"
-        android:layout_below="@+id/passwordConfirmField"
-        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
         android:onClick="SubmitButton_onClick" />
 
     <EditText
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginTop="22dp"
+        android:paddingLeft="15dp"
+        android:background="@drawable/background_edittext"
         android:inputType="textPassword"
         android:ems="10"
         android:id="@+id/passwordConfirmField"
@@ -64,6 +77,6 @@
         android:layout_alignParentStart="true"
         android:layout_alignEnd="@+id/passwordField"
         android:hint="Password (confirm)"
-        android:text="yolOsw4g" />
+        android:text="" />
 
 </RelativeLayout>

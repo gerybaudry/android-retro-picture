@@ -9,23 +9,42 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.gautier_lefebvre.epitechmessengerapp.activity.HomeDisconnectedActivity">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sign up"
-        android:id="@+id/signUpButton"
-        android:onClick="SignUpButton_onClick"
-        android:layout_alignTop="@+id/signInButton"
-        android:layout_toEndOf="@+id/signInButton"
-        android:layout_marginStart="49dp" />
 
-    <Button
+
+    <ImageView
+        android:id="@+id/logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sign in"
-        android:id="@+id/signInButton"
-        android:onClick="SignInButton_onClick"
-        android:layout_marginStart="49dp"
-        android:layout_centerVertical="true"
-        android:layout_alignParentStart="true" />
+        android:src="@drawable/logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"/>
+
+    <RelativeLayout
+        android:layout_alignParentBottom="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true">
+
+        <Button
+            android:layout_width="match_parent"
+            android:background="@color/blue"
+            android:textColor="@android:color/white"
+            android:layout_height="wrap_content"
+            android:text="Sign up"
+            android:id="@+id/signUpButton"
+            android:onClick="SignUpButton_onClick"/>
+
+        <Button
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/signUpButton"
+            android:layout_width="match_parent"
+            android:background="@color/blue"
+            android:textColor="@android:color/white"
+            android:layout_height="wrap_content"
+            android:text="Sign in"
+            android:id="@+id/signInButton"
+            android:onClick="SignInButton_onClick"/>
+    </RelativeLayout>
+
 </RelativeLayout>
